@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johann Gottlieb Fichte - El Padre del Idealismo Alemán</title>
-    <meta name="description" content="Sitio web dedicado al filósofo alemán Johann Gottlieb Fichte (1762-1814), padre del idealismo alemán y desarrollador de la Wissenschaftslehre.">
+    <meta name="description" content="Sitio web completo sobre Johann Gottlieb Fichte (1762-1814), padre del idealismo alemán. Biografía, obras principales, filosofía y legado intelectual.">
     <style>
         * {
             margin: 0;
@@ -13,11 +13,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #333;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -27,261 +26,272 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        header h1 {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        header p {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            margin-bottom: 1rem;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
         }
 
         nav {
+            background: #34495e;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            list-style: none;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
         }
 
-        nav a {
+        .nav-links li {
+            margin: 0.5rem 1rem;
+        }
+
+        .nav-links a {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .nav-links a:hover {
+            background: #3498db;
             transform: translateY(-2px);
         }
 
-        main {
-            margin-top: 180px;
-            padding-bottom: 2rem;
-        }
-
-        section {
-            background: white;
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
+        .hero {
             text-align: center;
+            padding: 4rem 0;
+            position: relative;
         }
 
-        h3 {
-            color: #34495e;
-            margin: 2rem 0 1rem 0;
-            font-size: 1.8rem;
-        }
-
-        h4 {
-            color: #34495e;
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.4rem;
-        }
-
-        h5 {
-            color: #34495e;
-            margin: 1rem 0 0.5rem 0;
-            font-size: 1.2rem;
-        }
-
-        p {
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-align: justify;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
         }
 
-        .info-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
             margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
             padding: 2rem;
             border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        .card h3 {
-            color: white;
+        .card h3, .card h4 {
+            color: #2c3e50;
             margin-bottom: 1rem;
         }
 
-        blockquote {
-            background: #f8f9fa;
-            border-left: 5px solid #667eea;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 10px;
-            font-style: italic;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        cite {
+        .card em {
+            color: #666;
             display: block;
-            margin-top: 1rem;
-            font-style: normal;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .basic-info {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        .basic-info ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .basic-info li {
-            margin-bottom: 0.8rem;
-            padding: 0.5rem;
-            background: white;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .portrait {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .portrait img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-            justify-content: center;
-        }
-
-        .filter-buttons button {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            background: #667eea;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .filter-buttons button:hover,
-        .filter-buttons button.active {
-            background: #764ba2;
-            transform: translateY(-2px);
-        }
-
-        .obras-list {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .obra {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .obra:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .obra .category {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-right: 1rem;
-        }
-
-        .obra .year {
-            color: #764ba2;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .obra h3 {
-            margin: 1rem 0 0.5rem 0;
-            color: #2c3e50;
-        }
-
-        .german-title {
-            font-style: italic;
-            color: #7f8c8d;
             margin-bottom: 0.5rem;
         }
 
-        .quote-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 3rem;
-            border-radius: 15px;
-            color: white;
-            text-align: center;
-            margin: 2rem 0;
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            margin: 3rem 0;
+            padding-left: 4rem;
             position: relative;
         }
 
-        .quote-text {
-            font-size: 1.3rem;
-            font-style: italic;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #3498db;
+        }
+
+        .timeline-item h4 {
+            color: #2c3e50;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item li {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        .philosophy-diagram {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+        }
+
+        .concept-box {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .concept-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .concept-details {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            display: none;
+        }
+
+        .concept-details.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quotes-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
         .quote-author {
-            font-weight: bold;
+            font-size: 1.1rem;
+            opacity: 0.8;
             margin-bottom: 2rem;
         }
 
@@ -290,196 +300,147 @@
             justify-content: center;
             gap: 1rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .quote-controls button {
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border: 2px solid white;
             background: transparent;
             color: white;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
         .quote-controls button:hover {
             background: white;
-            color: #667eea;
+            color: #2c3e50;
         }
 
         .quote-counter {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.8);
             font-size: 0.9rem;
         }
 
-        .philosophy-tabs {
-            margin: 2rem 0;
-        }
-
-        .tab-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            justify-content: center;
-        }
-
-        .tab-button {
-            padding: 1rem 1.5rem;
-            border: 2px solid #667eea;
-            background: transparent;
-            color: #667eea;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .tab-button.active,
-        .tab-button:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .tab-content {
+        .influence-tree {
             background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            padding: 3rem;
+            border-radius: 20px;
             margin: 3rem 0;
         }
 
-        .stat {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-        }
-
-        .stat .number {
-            font-size: 3rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline {
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .timeline-item {
-            background: #f8f9fa;
-            padding: 2rem;
+        .influence-item {
+            display: flex;
+            align-items: center;
             margin: 1rem 0;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            position: relative;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .timeline-year {
-            background: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-weight: bold;
+        .influence-arrow {
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
         }
 
         footer {
-            background: rgba(44, 62, 80, 0.9);
+            background: #2c3e50;
             color: white;
             padding: 3rem 0;
             text-align: center;
-            margin-top: 3rem;
         }
 
         footer h3 {
-            color: white;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         footer p {
             margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            opacity: 0.8;
         }
 
-        .footer-links {
-            margin: 2rem 0;
-        }
-
-        .footer-links a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #764ba2;
+        .mobile-menu {
+            display: none;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            section {
-                padding: 2rem 1rem;
-                margin: 1rem 0;
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
             }
 
-            h2 {
-                font-size: 2rem;
-            }
-
-            .info-cards {
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            nav {
+            .section {
+                padding: 2rem 0;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item::before {
+                left: 0;
+            }
+
+            .quote-controls {
+                flex-direction: column;
                 gap: 0.5rem;
             }
 
-            nav a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
+            .concept-box {
+                display: block;
+                margin: 0.5rem 0;
             }
+        }
 
-            main {
-                margin-top: 200px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-            .quote-text {
-                font-size: 1.1rem;
-            }
-
-            .filter-buttons {
-                justify-content: flex-start;
-            }
-
-            .tab-buttons {
-                justify-content: flex-start;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .scroll-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #667eea;
+            background: #3498db;
             color: white;
             border: none;
             border-radius: 50%;
@@ -487,398 +448,300 @@
             height: 50px;
             cursor: pointer;
             font-size: 1.2rem;
-            display: none;
             transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
             z-index: 1000;
         }
 
-        .scroll-to-top:hover {
-            background: #764ba2;
-            transform: translateY(-3px);
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .scroll-to-top.visible {
-            display: block;
+        .scroll-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Johann Gottlieb Fichte</h1>
-            <p>1762-1814 | El Padre del Idealismo Alemán</p>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#biografia">Biografía</a>
-                <a href="#obras">Obras</a>
-                <a href="#filosofia">Filosofía</a>
-                <a href="#citas">Citas</a>
-                <a href="#contexto">Contexto</a>
-                <a href="#legado">Legado</a>
-            </nav>
+            <div class="hero">
+                <h1>Johann Gottlieb Fichte</h1>
+                <p class="hero-subtitle">1762-1814 | El Padre del Idealismo Alemán</p>
+                <div class="quote">
+                    "La filosofía que uno escoge depende de la clase de hombre que uno sea"
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <section id="inicio">
-            <h2>Johann Gottlieb Fichte</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #667eea; margin-bottom: 2rem;">
-                19 de mayo de 1762 - 29 de enero de 1814<br>
-                <strong>El Padre del Idealismo Alemán</strong>
-            </p>
-            
-            <div class="info-cards">
-                <div class="card">
-                    <h3>Nacimiento</h3>
-                    <p>19 de mayo de 1762</p>
-                    <p>Rammenau, Sajonia</p>
-                </div>
-                <div class="card">
-                    <h3>Muerte</h3>
-                    <p>29 de enero de 1814</p>
-                    <p>Berlín, Prusia</p>
-                </div>
-                <div class="card">
-                    <h3>Obra Principal</h3>
-                    <p>Wissenschaftslehre</p>
-                    <p>Doctrina de la Ciencia</p>
-                </div>
-                <div class="card">
-                    <h3>Concepto Clave</h3>
-                    <p>El Yo Absoluto</p>
-                    <p>Principio del idealismo</p>
-                </div>
-            </div>
-            
-            <blockquote>
-                "La filosofía que uno escoge depende de la clase de hombre que uno sea"
-                <cite>— Johann Gottlieb Fichte</cite>
-            </blockquote>
-            
-            <p>Pionero del idealismo alemán post-kantiano, Fichte desarrolló un sistema filosófico revolucionario que estableció al "Yo" como principio fundamental de toda realidad y conocimiento. Su obra influyó profundamente en Schelling, Hegel y el movimiento romántico alemán.</p>
-        </section>
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#biografia">Biografía</a></li>
+                <li><a href="#obras">Obras</a></li>
+                <li><a href="#filosofia">Filosofía</a></li>
+                <li><a href="#citas">Citas</a></li>
+                <li><a href="#contexto">Contexto</a></li>
+                <li><a href="#legado">Legado</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <section id="biografia">
-            <h2>Biografía</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                La vida de Johann Gottlieb Fichte: desde sus humildes orígenes hasta convertirse en el padre del idealismo alemán
-            </p>
-            
-            <div class="basic-info">
-                <h3>Información Básica</h3>
-                <ul>
-                    <li><strong>Nombre Completo:</strong> Johann Gottlieb Fichte</li>
-                    <li><strong>Fechas de Vida:</strong> 19 de mayo de 1762 - 29 de enero de 1814 (51 años)</li>
-                    <li><strong>Lugar de Nacimiento:</strong> Rammenau, Electorado de Sajonia, Sacro Imperio Romano Germánico</li>
-                    <li><strong>Lugar de Fallecimiento:</strong> Berlín, Provincia de Brandeburgo, Reino de Prusia</li>
-                    <li><strong>Causa de muerte:</strong> Tifus (contraído al cuidar a su esposa enferma)</li>
-                </ul>
-            </div>
-            
-            <div class="portrait">
-                <img src="assets/fichte_portrait.jpg" alt="Retrato de Johann Gottlieb Fichte">
-            </div>
-            
-            <div class="timeline">
-                <h3>Períodos de Su Vida</h3>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1762-1784</div>
-                    <h4>Orígenes y Formación Temprana</h4>
-                    <p>Johann Gottlieb Fichte nació en una familia extremadamente humilde en Rammenau, pequeña aldea de la Alta Lusacia. Su padre, Christian Fichte, era tejedor de cintas, y la familia vivía en condiciones de pobreza. A pesar de las limitaciones económicas, el joven Fichte mostró una inteligencia excepcional desde temprana edad.</p>
-                    <h5>Eventos Clave:</h5>
-                    <ul>
-                        <li>1762: Nacimiento en Rammenau</li>
-                        <li>1770: El barón von Miltitz decide patrocinar su educación tras escucharlo recitar un sermón</li>
-                        <li>1774-1780: Estudios en la prestigiosa escuela de Pforta</li>
-                        <li>1780: Ingreso a la Facultad de Teología de la Universidad de Jena</li>
-                        <li>1781-1784: Transferencia a la Universidad de Leipzig</li>
-                    </ul>
+    <main>
+        <section id="inicio" class="section">
+            <div class="container">
+                <h2>Inicio</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Nacimiento</h3>
+                        <p><strong>19 de mayo de 1762</strong></p>
+                        <p>Rammenau, Sajonia</p>
+                    </div>
+                    <div class="card">
+                        <h3>Muerte</h3>
+                        <p><strong>29 de enero de 1814</strong></p>
+                        <p>Berlín, Prusia</p>
+                    </div>
+                    <div class="card">
+                        <h3>Obra Principal</h3>
+                        <p><strong>Wissenschaftslehre</strong></p>
+                        <p>Doctrina de la Ciencia</p>
+                    </div>
+                    <div class="card">
+                        <h3>Concepto Clave</h3>
+                        <p><strong>El Yo Absoluto</strong></p>
+                        <p>Principio del idealismo</p>
+                    </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1784-1793</div>
-                    <h4>Años de Lucha y Autoformación</h4>
-                    <p>Fichte pasó casi una década trabajando como tutor privado para familias aristocráticas, un período caracterizado por dificultades económicas pero rico en desarrollo intelectual.</p>
-                    <h5>Eventos Clave:</h5>
-                    <ul>
-                        <li>1784-1788: Tutor para familias sajonas</li>
-                        <li>1788-1790: Tutor en Zúrich, conoce a Johanna Rahn</li>
-                        <li>1790: Compromiso secreto con Johanna Rahn</li>
-                        <li>1791: Encuentro decisivo con Kant en Königsberg</li>
-                        <li>1791: Escribe 'Ensayo de una crítica de toda revelación'</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1793-1794</div>
-                    <h4>Matrimonio y Reconocimiento Filosófico</h4>
-                    <h5>Eventos Clave:</h5>
-                    <ul>
-                        <li>1792: Publicación anónima del 'Ensayo', inicialmente atribuida a Kant</li>
-                        <li>1793: Matrimonio secreto con Johanna Rahn en Zúrich</li>
-                        <li>1793: Publicación sobre la Revolución Francesa</li>
-                        <li>1793: Invitación a la cátedra de filosofía en Jena</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1794-1799</div>
-                    <h4>Período Dorado en Jena</h4>
-                    <p>Este período representa la fase más productiva y creativa de su carrera filosófica, donde desarrolló su sistema de la Wissenschaftslehre.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1799-1814</div>
-                    <h4>Años en Berlín y Madurez Filosófica</h4>
-                    <p>Tras la controversia del ateísmo que lo forzó a dejar Jena, se estableció en Berlín donde continuó desarrollando su filosofía y escribió sus famosos Discursos a la nación alemana.</p>
+                <div class="intro-text">
+                    <p>Pionero del idealismo alemán post-kantiano, Fichte desarrolló un sistema filosófico revolucionario que estableció al "Yo" como principio fundamental de toda realidad y conocimiento. Su obra influyó profundamente en Schelling, Hegel y el movimiento romántico alemán.</p>
                 </div>
             </div>
         </section>
 
-        <section id="obras">
-            <h2>Obras Principales</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                Las obras fundamentales que establecieron a Fichte como el padre del idealismo alemán
-            </p>
-            
-            <div class="filter-buttons">
-                <button onclick="filterWorks('all')" class="active">Todas las obras</button>
-                <button onclick="filterWorks('religion')">Filosofía de la religión</button>
-                <button onclick="filterWorks('fundamental')">Filosofía fundamental</button>
-                <button onclick="filterWorks('system')">Sistema filosófico</button>
-                <button onclick="filterWorks('political')">Filosofía política</button>
-                <button onclick="filterWorks('moral')">Filosofía moral</button>
-            </div>
-            
-            <div class="obras-list">
-                <article class="obra" data-category="religion">
-                    <span class="category">Filosofía de la religión</span>
-                    <span class="year">1792</span>
-                    <h3>Ensayo de una crítica de toda revelación</h3>
-                    <p class="german-title">Versuch einer Kritik aller Offenbarung</p>
-                    <p>Primera obra filosófica, inicialmente atribuida a Kant</p>
-                </article>
+        <section id="biografia" class="section">
+            <div class="container">
+                <h2>Biografía</h2>
+                <p class="section-intro">La vida de Johann Gottlieb Fichte: desde sus humildes orígenes hasta convertirse en el padre del idealismo alemán</p>
                 
-                <article class="obra" data-category="fundamental">
-                    <span class="category">Filosofía fundamental</span>
-                    <span class="year">1794</span>
-                    <h3>Sobre el concepto de la doctrina de la ciencia</h3>
-                    <p class="german-title">Über den Begriff der Wissenschaftslehre</p>
-                    <p>Introducción a su sistema central</p>
-                </article>
-                
-                <article class="obra" data-category="system">
-                    <span class="category">Sistema filosófico</span>
-                    <span class="year">1794</span>
-                    <h3>Fundamento de toda la doctrina de la ciencia</h3>
-                    <p class="german-title">Grundlage der gesamten Wissenschaftslehre</p>
-                    <p>Obra fundamental del idealismo alemán</p>
-                </article>
-                
-                <article class="obra" data-category="fundamental">
-                    <span class="category">Filosofía fundamental</span>
-                    <span class="year">1795</span>
-                    <h3>Esquema de lo peculiar de la doctrina de la ciencia</h3>
-                    <p class="german-title">Grundriss des Eigenthümlichen der Wissenschaftslehre</p>
-                    <p>Clarificación metodológica</p>
-                </article>
-                
-                <article class="obra" data-category="political">
-                    <span class="category">Filosofía política</span>
-                    <span class="year">1796</span>
-                    <h3>Fundamento del derecho natural</h3>
-                    <p class="german-title">Grundlage des Naturrechts</p>
-                    <p>Teoría del reconocimiento mutuo</p>
-                </article>
-                
-                <article class="obra" data-category="moral">
-                    <span class="category">Filosofía moral</span>
-                    <span class="year">1798</span>
-                    <h3>El sistema de la doctrina moral</h3>
-                    <p class="german-title">Das System der Sittenlehre</p>
-                    <p>Ética fichteana completa</p>
-                </article>
-                
-                <article class="obra" data-category="political">
-                    <span class="category">Filosofía política</span>
-                    <span class="year">1807-1808</span>
-                    <h3>Discursos a la nación alemana</h3>
-                    <p class="german-title">Reden an die deutsche Nation</p>
-                    <p>Obra fundamental para el nacionalismo alemán</p>
-                </article>
-            </div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <span class="number">7</span>
-                    <span>Obras principales</span>
-                </div>
-                <div class="stat">
-                    <span class="number">21</span>
-                    <span>Años de carrera</span>
-                </div>
-                <div class="stat">
-                    <span class="number">5</span>
-                    <span>Universidades</span>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Orígenes y Formación Temprana (1762-1784)</h4>
+                        <p>Johann Gottlieb Fichte nació en una familia extremadamente humilde en Rammenau, pequeña aldea de la Alta Lusacia. Su padre, Christian Fichte, era tejedor de cintas, y la familia vivía en condiciones de pobreza.</p>
+                        <ul>
+                            <li>1762: Nacimiento en Rammenau</li>
+                            <li>1770: El barón von Miltitz decide patrocinar su educación</li>
+                            <li>1774-1780: Estudios en la prestigiosa escuela de Pforta</li>
+                            <li>1780: Ingreso a la Facultad de Teología de la Universidad de Jena</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Años de Lucha y Autoformación (1784-1793)</h4>
+                        <p>Fichte pasó casi una década trabajando como tutor privado para familias aristocráticas, un período caracterizado por dificultades económicas pero rico en desarrollo intelectual.</p>
+                        <ul>
+                            <li>1788-1790: Tutor en Zúrich, conoce a Johanna Rahn</li>
+                            <li>1791: Encuentro decisivo con Kant en Königsberg</li>
+                            <li>1793: Matrimonio secreto con Johanna Rahn</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Período Dorado en Jena (1794-1799)</h4>
+                        <p>Este período representa la fase más productiva y creativa de su carrera filosófica, donde desarrolló su sistema de la Wissenschaftslehre.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Años en Berlín y Madurez Filosófica (1799-1814)</h4>
+                        <p>Tras la controversia del ateísmo que lo forzó a dejar Jena, se estableció en Berlín donde continuó desarrollando su filosofía y escribió sus famosos Discursos a la nación alemana.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="filosofia">
-            <h2>Filosofía</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                Los conceptos fundamentales del sistema filosófico de Fichte
-            </p>
-            
-            <div class="philosophy-tabs">
-                <div class="tab-buttons">
-                    <button class="tab-button active" onclick="showTab('wissenschaftslehre')">Wissenschaftslehre</button>
-                    <button class="tab-button" onclick="showTab('tathandlung')">Tathandlung</button>
-                    <button class="tab-button" onclick="showTab('yo-absoluto')">El Yo Absoluto</button>
-                    <button class="tab-button" onclick="showTab('yo-empirico')">El Yo Empírico</button>
-                    <button class="tab-button" onclick="showTab('anstoss')">Anstoß</button>
-                </div>
+        <section id="obras" class="section">
+            <div class="container">
+                <h2>Obras Principales</h2>
+                <p class="section-intro">Las obras fundamentales que establecieron a Fichte como el padre del idealismo alemán</p>
                 
-                <div id="wissenschaftslehre" class="tab-content active">
-                    <h3>Wissenschaftslehre (Doctrina de la Ciencia)</h3>
-                    <p>La Wissenschaftslehre es el sistema filosófico central de Fichte, que pretende ser una ciencia de la ciencia misma. Su objetivo es encontrar el principio absoluto y primero de todo conocimiento humano.</p>
-                    <p>Este sistema se basa en tres principios fundamentales:</p>
-                    <ul>
-                        <li><strong>Primer principio:</strong> El Yo se pone a sí mismo</li>
-                        <li><strong>Segundo principio:</strong> Al Yo se le opone un No-Yo</li>
-                        <li><strong>Tercer principio:</strong> El Yo divide tanto al Yo como al No-Yo</li>
-                    </ul>
-                </div>
-                
-                <div id="tathandlung" class="tab-content">
-                    <h3>Tathandlung (Hecho-Acción)</h3>
-                    <p>La Tathandlung es el concepto clave que designa el acto primordial por el cual el Yo se constituye a sí mismo. No es ni un mero hecho ni una simple acción, sino la unidad inmediata de ambos.</p>
-                    <p>Esta auto-posición del Yo es:</p>
-                    <ul>
-                        <li>Incondicional e inmediata</li>
-                        <li>Anterior a toda distinción sujeto-objeto</li>
-                        <li>El fundamento de toda conciencia y realidad</li>
-                        <li>Una actividad pura que se manifiesta como autoconciencia</li>
-                    </ul>
-                </div>
-                
-                <div id="yo-absoluto" class="tab-content">
-                    <h3>El Yo Absoluto</h3>
-                    <p>El Yo Absoluto es el principio supremo de la filosofía fichteana. No es el yo empírico individual, sino el principio trascendental que hace posible toda experiencia y conocimiento.</p>
-                    <p>Características del Yo Absoluto:</p>
-                    <ul>
-                        <li>Es actividad pura, no sustancia</li>
-                        <li>Se auto-determina libremente</li>
-                        <li>Es la condición de posibilidad de toda realidad</li>
-                        <li>Trasciende la distinción sujeto-objeto</li>
-                    </ul>
-                </div>
-                
-                <div id="yo-empirico" class="tab-content">
-                    <h3>El Yo Empírico</h3>
-                    <p>El Yo empírico es el yo individual y finito, resultado de la auto-limitación del Yo Absoluto. Es el yo de la experiencia cotidiana que se encuentra en el mundo.</p>
-                    <p>El Yo empírico se caracteriza por:</p>
-                    <ul>
-                        <li>Su finitud y limitaciones</li>
-                        <li>Su relación necesaria con el No-Yo</li>
-                        <li>Su carácter temporal e histórico</li>
-                        <li>Su aspiración a realizar la libertad absoluta</li>
-                    </ul>
-                </div>
-                
-                <div id="anstoss" class="tab-content">
-                    <h3>Anstoß (Impulso)</h3>
-                    <p>El Anstoß es el impulso o choque que permite al Yo Absoluto limitarse y, por tanto, hacerse consciente. Sin este impulso, el Yo permanecería en una actividad infinita e inconsciente.</p>
-                    <p>El Anstoß explica:</p>
-                    <ul>
-                        <li>El origen de la finitud</li>
-                        <li>La posibilidad de la conciencia</li>
-                        <li>La génesis del mundo objetivo</li>
-                        <li>El dinamismo del desarrollo de la conciencia</li>
-                    </ul>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Ensayo de una crítica de toda revelación (1792)</h4>
+                        <em>Versuch einer Kritik aller Offenbarung</em>
+                        <p>Primera obra filosófica, inicialmente atribuida a Kant</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Fundamento de toda la doctrina de la ciencia (1794)</h4>
+                        <em>Grundlage der gesamten Wissenschaftslehre</em>
+                        <p>Obra fundamental del idealismo alemán</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Fundamento del derecho natural (1796)</h4>
+                        <em>Grundlage des Naturrechts</em>
+                        <p>Teoría del reconocimiento mutuo</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>El sistema de la doctrina moral (1798)</h4>
+                        <em>Das System der Sittenlehre</em>
+                        <p>Ética fichteana completa</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Discursos a la nación alemana (1807-1808)</h4>
+                        <em>Reden an die deutsche Nation</em>
+                        <p>Obra fundamental para el nacionalismo alemán</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Los caracteres de la edad contemporánea (1806)</h4>
+                        <em>Die Grundzüge des gegenwärtigen Zeitalters</em>
+                        <p>Análisis filosófico-histórico de su época</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="citas">
-            <h2>Citas Destacadas</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                Pensamientos fundamentales del padre del idealismo alemán
-            </p>
-            
-            <div class="quote-container">
-                <div class="quote-text" id="current-quote">
-                    "La filosofía que uno escoge depende de la clase de hombre que uno sea"
-                </div>
-                <div class="quote-author" id="current-author">
-                    — Johann Gottlieb Fichte
-                </div>
-                <div class="quote-controls">
-                    <button onclick="previousQuote()">← Anterior</button>
-                    <button onclick="toggleAutoplay()" id="playButton">⏸ Pausar</button>
-                    <button onclick="nextQuote()">Siguiente →</button>
-                    <span class="quote-counter" id="quote-counter">1 de 8</span>
+        <section id="filosofia" class="section">
+            <div class="container">
+                <h2>Pensamiento Filosófico</h2>
+                <p class="section-intro">Los conceptos revolucionarios que transformaron la filosofía occidental y establecieron las bases del idealismo alemán</p>
+                
+                <div class="philosophy-diagram">
+                    <h3>Conceptos Centrales</h3>
+                    <div class="concept-box" onclick="showConcept('wissenschaftslehre')">Wissenschaftslehre (Doctrina de la Ciencia)</div>
+                    <div class="concept-box" onclick="showConcept('tathandlung')">Tathandlung (Hecho-Acto Originario)</div>
+                    <div class="concept-box" onclick="showConcept('yo-absoluto')">El Yo Absoluto</div>
+                    <div class="concept-box" onclick="showConcept('yo-empirico')">El Yo Empírico</div>
+                    <div class="concept-box" onclick="showConcept('anstoss')">Anstoß (Choque/Impulso)</div>
+                    
+                    <div id="wissenschaftslehre" class="concept-details active">
+                        <h4>Wissenschaftslehre (Doctrina de la Ciencia)</h4>
+                        <p>La Wissenschaftslehre es el sistema filosófico central de Fichte, que pretende ser una ciencia de la ciencia misma. Su objetivo es encontrar el principio absoluto y primero de todo conocimiento humano.</p>
+                    </div>
+                    
+                    <div id="tathandlung" class="concept-details">
+                        <h4>Tathandlung (Hecho-Acto Originario)</h4>
+                        <p>La Tathandlung designa el acto primordial por el cual el Yo se constituye a sí mismo. No es ni un mero hecho ni una simple acción, sino la unidad inmediata de ambos.</p>
+                    </div>
+                    
+                    <div id="yo-absoluto" class="concept-details">
+                        <h4>El Yo Absoluto</h4>
+                        <p>El Yo Absoluto es el principio supremo de la filosofía fichteana. No es el yo empírico individual, sino el principio trascendental que hace posible toda experiencia y conocimiento.</p>
+                    </div>
+                    
+                    <div id="yo-empirico" class="concept-details">
+                        <h4>El Yo Empírico</h4>
+                        <p>El Yo empírico es el yo individual y finito, resultado de la auto-limitación del Yo Absoluto. Es el yo de la experiencia cotidiana que se encuentra en el mundo.</p>
+                    </div>
+                    
+                    <div id="anstoss" class="concept-details">
+                        <h4>Anstoß (Choque/Impulso)</h4>
+                        <p>El Anstoß es el impulso o choque que permite al Yo Absoluto limitarse y, por tanto, hacerse consciente. Sin este impulso, el Yo permanecería en una actividad infinita e inconsciente.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contexto">
-            <h2>Contexto Histórico</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                La época turbulenta que moldeó el pensamiento de Fichte
-            </p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">1762-1789</div>
-                    <h4>Ilustración Tardía</h4>
-                    <p>Fichte nace en plena Ilustración. La filosofía de Kant domina el panorama intelectual alemán, mientras que las ideas ilustradas preparan el terreno para los grandes cambios políticos y sociales.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1789-1799</div>
-                    <h4>Revolución Francesa</h4>
-                    <p>La Revolución Francesa impacta profundamente en Fichte, quien ve en ella la realización histórica de los ideales de libertad y autodeterminación que están en el corazón de su filosofía.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1800-1814</div>
-                    <h4>Guerras Napoleónicas</h4>
-                    <p>Las guerras napoleónicas y la ocupación francesa de los estados alemanes despiertan en Fichte un fervor nacionalista que culmina en sus famosos "Discursos a la nación alemana".</p>
+        <section id="citas" class="quotes-section">
+            <div class="container">
+                <h2 style="color: white;">Citas Destacadas</h2>
+                <div class="quote-container">
+                    <div class="quote-text" id="current-quote">
+                        "La filosofía que uno escoge depende de la clase de hombre que uno sea"
+                    </div>
+                    <div class="quote-author" id="current-author">
+                        — Johann Gottlieb Fichte
+                    </div>
+                    <div class="quote-controls">
+                        <button onclick="previousQuote()">← Anterior</button>
+                        <button onclick="toggleAutoplay()" id="playButton">⏸ Pausar</button>
+                        <button onclick="nextQuote()">Siguiente →</button>
+                        <span class="quote-counter" id="quote-counter">1 de 8</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="legado">
-            <h2>Legado</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #667eea; margin-bottom: 2rem;">
-                La influencia perdurable de Fichte en la filosofía occidental
-            </p>
-            
-            <div class="info-cards">
-                <div class="card">
-                    <h3>Idealismo Alemán</h3>
-                    <p>Fundó las bases del idealismo alemán que desarrollarían Schelling y Hegel</p>
-                </div>
-                <div class="card">
-                    <h3>Filosofía del Yo</h3>
-                    <p>Estableció la centralidad del sujeto en la filosofía moderna</p>
-                </div>
-                <div class="card">
-                    <h3>Nacionalismo</h3>
-                    <p>Sus ideas influenciaron el desarrollo del nacionalismo alemán</p>
-                </div>
-                <div class="card">
-                    <h3>Fenomenología</h3>
-                    <p>Sus métodos anticiparon desarrollos en la fenomenología del siglo XX</p>
+        <section id="contexto" class="section">
+            <div class="container">
+                <h2>Contexto Histórico</h2>
+                <p class="section-intro">La época turbulenta que moldeó el pensamiento de Fichte</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Ilustración Tardía (1762-1789)</h4>
+                        <p>Fichte nace en plena Ilustración. La filosofía de Kant domina el panorama intelectual alemán, mientras que las ideas ilustradas preparan el terreno para los grandes cambios políticos y sociales.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Revolución Francesa (1789-1799)</h4>
+                        <p>La Revolución Francesa impacta profundamente en Fichte, quien ve en ella la realización histórica de los ideales de libertad y autodeterminación que están en el corazón de su filosofía.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Guerras Napoleónicas (1800-1814)</h4>
+                        <p>Las guerras napoleónicas y la ocupación francesa de los estados alemanes despiertan en Fichte un fervor nacionalista que culmina en sus famosos "Discursos a la nación alemana".</p>
+                    </div>
                 </div>
             </div>
-            
-            <blockquote>
-                "Fichte fue el primer filósofo en reconocer claramente que la filosofía debe partir del sujeto y no del objeto"
-                <cite>— Evaluación histórica de su contribución</cite>
-            </blockquote>
+        </section>
+
+        <section id="legado" class="section">
+            <div class="container">
+                <h2>Legado</h2>
+                <p class="section-intro">La influencia perdurable de Fichte en la filosofía occidental</p>
+                
+                <div class="influence-tree">
+                    <h3>Árbol de Influencia Filosófica</h3>
+                    <div class="influence-item">
+                        <strong>Fichte</strong>
+                        <span class="influence-arrow">→</span>
+                        <span>Schelling (Filosofía de la Naturaleza)</span>
+                    </div>
+                    <div class="influence-item">
+                        <strong>Fichte</strong>
+                        <span class="influence-arrow">→</span>
+                        <span>Hegel (Dialéctica)</span>
+                    </div>
+                    <div class="influence-item">
+                        <strong>Fichte</strong>
+                        <span class="influence-arrow">→</span>
+                        <span>Románticos Alemanes</span>
+                    </div>
+                    <div class="influence-item">
+                        <strong>Legado Moderno</strong>
+                        <span class="influence-arrow">→</span>
+                        <span>Fenomenología, Existencialismo, Teorías de la Intersubjetividad</span>
+                    </div>
+                </div>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h4>Idealismo Alemán</h4>
+                        <p>Fundó las bases del idealismo alemán que desarrollarían Schelling y Hegel</p>
+                    </div>
+                    <div class="card">
+                        <h4>Filosofía del Yo</h4>
+                        <p>Estableció la centralidad del sujeto en la filosofía moderna</p>
+                    </div>
+                    <div class="card">
+                        <h4>Nacionalismo</h4>
+                        <p>Sus ideas influenciaron el desarrollo del nacionalismo alemán</p>
+                    </div>
+                    <div class="card">
+                        <h4>Fenomenología</h4>
+                        <p>Sus métodos anticiparon desarrollos en la fenomenología del siglo XX</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -886,14 +749,9 @@
         <div class="container">
             <h3>Johann Gottlieb Fichte (1762-1814)</h3>
             <p>Este sitio web está dedicado al estudio y difusión del pensamiento del padre del idealismo alemán.</p>
-            <p>Contenido académico basado en fuentes históricas y filosóficas reconocidas.</p>
-            
-            <div class="footer-links">
-                <p>Recursos de consulta: Enciclopedias filosóficas • Estudios académicos • Fuentes primarias</p>
-            </div>
-            
-            <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);">
-                Sitio web educativo - Proyecto académico sobre filosofía alemana
+            <p>Contenido académico basado en más de 130 fuentes históricas y filosóficas reconocidas.</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                Sitio web educativo - Proyecto de investigación académica sobre filosofía alemana
             </p>
         </div>
     </footer>
@@ -983,42 +841,18 @@
             quoteCounter.textContent = `${currentQuoteIndex + 1} de ${quotes.length}`;
         }
 
-        // Works filtering
-        function filterWorks(category) {
-            const obras = document.querySelectorAll('.obra');
-            const buttons = document.querySelectorAll('.filter-buttons button');
+        // Show concept details
+        function showConcept(conceptId) {
+            // Hide all concept details
+            const details = document.querySelectorAll('.concept-details');
+            details.forEach(detail => detail.classList.remove('active'));
             
-            // Update button states
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Filter works
-            obras.forEach(obra => {
-                if (category === 'all' || obra.dataset.category === category) {
-                    obra.style.display = 'block';
-                } else {
-                    obra.style.display = 'none';
-                }
-            });
+            // Show selected concept
+            document.getElementById(conceptId).classList.add('active');
         }
 
-        // Philosophy tabs
-        function showTab(tabId) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        // Smooth scrolling
-        function smoothScroll() {
+        // Smooth scrolling for navigation links
+        function initSmoothScroll() {
             const links = document.querySelectorAll('nav a[href^="#"]');
             
             links.forEach(link => {
@@ -1028,7 +862,7 @@
                     const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
-                        const offsetTop = targetElement.offsetTop - 180;
+                        const offsetTop = targetElement.offsetTop - 80;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: 'smooth'
@@ -1038,7 +872,7 @@
             });
         }
 
-        // Scroll to top
+        // Scroll to top function
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
@@ -1059,27 +893,11 @@
             });
         }
 
-        // Header scroll effect
-        function handleHeaderScroll() {
-            const header = document.querySelector('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 100) {
-                    header.style.background = 'rgba(44, 62, 80, 0.95)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.1)';
-                }
-            });
-        }
-
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             initAutoplay();
-            smoothScroll();
+            initSmoothScroll();
             handleScrollButton();
-            handleHeaderScroll();
-            
-            // Set initial quote
             updateQuote();
         });
     </script>
